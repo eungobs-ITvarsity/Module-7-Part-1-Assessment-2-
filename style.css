@@ -1,0 +1,195 @@
+/* Reset all default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the page background and center the calculator */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Dark background to make the calculator stand out */
+    background: #1a1a2e;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the calculator box */
+.calculator {
+    background: #16213e;
+    /* Round the corners */
+    border-radius: 20px;
+    /* Add a subtle shadow around it */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    /* Set the width */
+    width: 340px;
+    /* Add padding inside */
+    padding: 20px;
+    /* Prevent it from overflowing */
+    overflow: hidden;
+}
+
+/* Style the display screen area */
+.display {
+    background: #0f3460;
+    /* Round the top corners */
+    border-radius: 15px;
+    /* Add space inside */
+    padding: 20px 25px;
+    /* Add space below the screen */
+    margin-bottom: 20px;
+    /* Align numbers to the right like a real calculator */
+    text-align: right;
+    /* Minimum height for the display */
+    min-height: 100px;
+    /* Stack the two lines on top of each other */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* If the number is too long, don't show the overflow */
+    overflow: hidden;
+}
+
+/* Style the previous number shown above (like "5 +") */
+.previous-operand {
+    color: #a1a1c7;
+    font-size: 18px;
+    margin-bottom: 8px;
+    /* Set a minimum height so it doesn't jump around */
+    min-height: 24px;
+    /* Cut off text that's too long */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Style the main number currently being typed */
+.current-operand {
+    color: #e94560;
+    font-size: 42px;
+    font-weight: 700;
+    /* Don't wrap to the next line */
+    white-space: nowrap;
+    /* Cut off text that's too long */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Smooth transition when the number changes */
+    transition: font-size 0.2s;
+}
+
+/* If the number gets really long, shrink the font */
+.current-operand.shrink {
+    font-size: 28px;
+}
+
+/* Style the buttons container as a grid */
+.buttons {
+    /* Create a 4 column grid */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Space between each button */
+    gap: 12px;
+}
+
+/* Style all buttons */
+.btn {
+    /* Remove default styles */
+    border: none;
+    outline: none;
+    /* Make them round-ish */
+    border-radius: 12px;
+    /* Add space inside */
+    padding: 18px;
+    /* Make text bigger */
+    font-size: 22px;
+    font-weight: 600;
+    /* Change cursor to a pointer */
+    cursor: pointer;
+    /* Smooth hover effect */
+    transition: all 0.2s;
+    /* Number button colors */
+    background: #1a1a40;
+    color: #ffffff;
+}
+
+/* When you hover over a button, lighten it */
+.btn:hover {
+    background: #2a2a5a;
+    transform: scale(1.05);
+}
+
+/* When you click a button, shrink it slightly */
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Style the special buttons (AC, DEL, %) */
+.special {
+    background: #533483;
+    color: #ffffff;
+}
+
+/* Hover effect for special buttons */
+.special:hover {
+    background: #6a44a0;
+}
+
+/* Style the operator buttons (+, -, ×, ÷) */
+.operator {
+    background: #e94560;
+    color: #ffffff;
+}
+
+/* Hover effect for operator buttons */
+.operator:hover {
+    background: #ff6b81;
+}
+
+/* When an operator is actively selected, highlight it */
+.operator.active {
+    background: #ff6b81;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+/* Style the equals button */
+.equals {
+    background: #0f3460;
+    color: #e94560;
+    /* Add a border to make it stand out */
+    border: 2px solid #e94560;
+}
+
+/* Hover effect for the equals button */
+.equals:hover {
+    background: #e94560;
+    color: #ffffff;
+}
+
+/* Keyboard shortcut hint at the bottom */
+.keyboard-hint {
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* Make sure the calculator looks good on small screens */
+@media (max-width: 400px) {
+    .calculator {
+        width: 100%;
+        border-radius: 0;
+        min-height: 100vh;
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .current-operand {
+        font-size: 36px;
+    }
+}
