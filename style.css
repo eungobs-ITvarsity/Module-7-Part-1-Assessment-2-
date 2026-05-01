@@ -23,10 +23,10 @@ body {
     border-radius: 20px;
     /* Add a subtle shadow around it */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    /* Set the width */
-    width: 340px;
-    /* Add padding inside */
-    padding: 20px;
+    /* Made the width bigger from 340px to 450px */
+    width: 450px;
+    /* Added more padding inside from 20px to 28px */
+    padding: 28px;
     /* Prevent it from overflowing */
     overflow: hidden;
 }
@@ -36,14 +36,14 @@ body {
     background: #0f3460;
     /* Round the top corners */
     border-radius: 15px;
-    /* Add space inside */
-    padding: 20px 25px;
-    /* Add space below the screen */
-    margin-bottom: 20px;
+    /* More space inside the display from 20px to 28px */
+    padding: 28px 30px;
+    /* More space below the screen */
+    margin-bottom: 24px;
     /* Align numbers to the right like a real calculator */
     text-align: right;
-    /* Minimum height for the display */
-    min-height: 100px;
+    /* Taller display from 100px to 130px */
+    min-height: 130px;
     /* Stack the two lines on top of each other */
     display: flex;
     flex-direction: column;
@@ -55,10 +55,11 @@ body {
 /* Style the previous number shown above (like "5 +") */
 .previous-operand {
     color: #a1a1c7;
-    font-size: 18px;
-    margin-bottom: 8px;
+    /* Bigger font from 18px to 22px */
+    font-size: 22px;
+    margin-bottom: 10px;
     /* Set a minimum height so it doesn't jump around */
-    min-height: 24px;
+    min-height: 28px;
     /* Cut off text that's too long */
     overflow: hidden;
     text-overflow: ellipsis;
@@ -68,7 +69,8 @@ body {
 /* Style the main number currently being typed */
 .current-operand {
     color: #e94560;
-    font-size: 42px;
+    /* Bigger font from 42px to 52px */
+    font-size: 52px;
     font-weight: 700;
     /* Don't wrap to the next line */
     white-space: nowrap;
@@ -81,7 +83,7 @@ body {
 
 /* If the number gets really long, shrink the font */
 .current-operand.shrink {
-    font-size: 28px;
+    font-size: 34px;
 }
 
 /* Style the buttons container as a grid */
@@ -89,8 +91,8 @@ body {
     /* Create a 4 column grid */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* Space between each button */
-    gap: 12px;
+    /* More space between buttons from 12px to 14px */
+    gap: 14px;
 }
 
 /* Style all buttons */
@@ -99,11 +101,11 @@ body {
     border: none;
     outline: none;
     /* Make them round-ish */
-    border-radius: 12px;
-    /* Add space inside */
-    padding: 18px;
-    /* Make text bigger */
-    font-size: 22px;
+    border-radius: 14px;
+    /* Bigger buttons from 18px to 24px padding */
+    padding: 24px;
+    /* Bigger text from 22px to 26px */
+    font-size: 26px;
     font-weight: 600;
     /* Change cursor to a pointer */
     cursor: pointer;
@@ -175,6 +177,24 @@ body {
     margin-top: 15px;
 }
 
+/* Make sure the calculator looks good on medium screens */
+@media (max-width: 500px) {
+    .calculator {
+        /* Scale down a bit for medium screens */
+        width: 380px;
+        padding: 22px;
+    }
+
+    .btn {
+        padding: 20px;
+        font-size: 23px;
+    }
+
+    .current-operand {
+        font-size: 44px;
+    }
+}
+
 /* Make sure the calculator looks good on small screens */
 @media (max-width: 400px) {
     .calculator {
@@ -185,7 +205,7 @@ body {
     }
 
     .btn {
-        padding: 15px;
+        padding: 18px;
         font-size: 20px;
     }
 
